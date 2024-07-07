@@ -3,15 +3,22 @@ html {
 }
 
 body {
-    font-size: 16px; /*1 rem = 10 px. Se adapta a diferentes dispositivos*/
+    font-size: 16px;
+    /*1 rem = 10 px. Se adapta a diferentes dispositivos*/
 }
 
-
-h1 {
+.titulo {
     text-align: center;
-    font-size: 3.8rem; 
+    font-size: 3.8rem;
 }
 
-span {
+
+h1.titulo span { /*Especificacion en CSS*/
     font-size: 2rem;
+    color: blue;
+}
+
+.titulo span {
+    font-size: 2rem;
+    color: red;
 }
