@@ -14,13 +14,16 @@ html {
 }
 
 body {
+    /*Se aplican ajustes generales a todo el documento*/
     font-size: 16px;
     /*1 rem = 10 px. Se adapta a diferentes dispositivos*/
+    font-family: "Krub", sans-serif;
 }
 
 .titulo {
     text-align: center;
     font-size: 3.8rem;
+
 }
 
 .titulo span {
