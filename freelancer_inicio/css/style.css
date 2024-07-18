@@ -196,12 +196,6 @@ h3 {
     align-items: flex-end;
 }
 
-
-
-/* Servicios */
-
-
-
 @media (min-width: 768px) {
     .servicios {
         display: grid;
@@ -288,7 +282,7 @@ h3 {
 }
 
 .campo textarea {
-    width: 20rem;
+    height: 17rem;
 
 }
 
