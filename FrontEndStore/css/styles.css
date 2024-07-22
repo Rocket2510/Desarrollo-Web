@@ -11,15 +11,9 @@
 }
 
 html {
-    font-size: 62.5%;
     box-sizing: border-box;
-    scroll-snap-type: y mandatory;
+    font-size: 62.5%;
 }
-/*
-html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-}*/
 
 *,
 *:before,
@@ -105,8 +99,6 @@ h3 {
     }
     */
 }
-
-
 
 .navegacion__enlace--activo,
 .navegacion__enlace:hover {
@@ -197,3 +189,30 @@ h3 {
 
     }
 }
+
+/** < Nosotros.html> **/
+/** Nosotros **/
+.nosotros {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+
+}
+
+@media (min-width: 768px) {
+    .nosotros {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+.nosotros__imagen {
+    grid-row: 1 / 2;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .nosotros__imagen {
+        grid-column: 2 / 3;
+    }
+}
+
