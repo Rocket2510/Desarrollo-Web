@@ -93,10 +93,11 @@ img {
 }
 
 @media (min-width: 768px) {
-   .header__texto{
-    margin-top: 15rem;
-   }
+    .header__texto {
+        margin-top: 15rem;
+    }
 }
+
 /** Barra **/
 @media (min-width: 768px) {
     .barra {
@@ -137,4 +138,14 @@ img {
     text-align: center;
     font-size: 1.8rem;
     color: var(--blanco);
+}
+
+/** Contendio Principal **/
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+
 }
