@@ -220,8 +220,24 @@ img {
 }
 
 /** Footer **/
-.footer{
+.footer {
     background-color: var(--negro);
     padding-bottom: 3rem;
     margin-top: 4rem;
 }
+
+/** Nosotros.html **/
+
+/** Sobre Nosotros **/
+@media (min-width: 786px) {
+    .sobre-nosotros {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+
+
+
+.sobre-nosotros__texto {}
