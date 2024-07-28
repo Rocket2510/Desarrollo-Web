@@ -174,12 +174,17 @@ img {
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 2rem;
+    border: none;
 }
 
 @media (min-width: 768px) {
     .boton {
         display: inline-block;
     }
+}
+
+.boton:hover{
+    cursor: pointerg;
 }
 
 .boton--primario {
@@ -275,9 +280,35 @@ img {
 }
 
 /** Formulario **/
+.formulario{
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+}
+
 @media (min-width: 768px) {
    
 }
 .campo{
-    
+    display: flex;
+    margin-bottom: 2rem;
+    text-align: right;
+    gap: 2rem;
 }
+
+.campo__label{
+    flex: 0 0 9rem;
+}
+
+.campo__field{
+    flex: 1;
+    border: 0.1rem solid var(--gris);
+}
+
+.campo__field--textarea{
+    height: 20rem;
+
+}
+
+/** Boton **/
