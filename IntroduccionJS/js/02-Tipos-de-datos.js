@@ -60,3 +60,20 @@ resultado = Math.floor(Math.random() * 30); //ceil: simpre redondea hasta abajo
 
 // console.log(resultado)
 
+/**
+ * ORDEN DE LAS OPERACIONES
+ */
+
+resultado1 = (20 + 30) * 2;
+resultado1 = (100 + 200 + 300) * 1.16;
+
+//console.log(resultado1)
+
+//incrementos
+let puntaje = 10;
+
+//incremento en 1 ++ (primero muestra el valor y luego incrementa) 
+puntaje++; //10
+++puntaje;  //12
+console.log(puntaje);
+
