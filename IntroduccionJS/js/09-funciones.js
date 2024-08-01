@@ -7,22 +7,22 @@
  */
 
 //DECLARACION DE FUNCION
+sumar();
 function sumar() {
     console.log(10 + 10);
 }
-
-sumar();
+// -> 20
 
 //EXPRESION DE LA FUNCION
+sumar2();
 const sumar2 = function () {
     console.log(3 + 3);
 }
-
-sumar2();
-
+// -> Error
+    
 //IIFE
 //protege para que no se mezclen las variables y funciones de otros archivos
-(function () {
-    console.log('Esto es una funcion')
-})();
+    (function () {
+        console.log('Esto es una funcion')
+    })();
 
