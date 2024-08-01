@@ -1,4 +1,6 @@
 //"use strict"; //ejecuta JS de forma estricta siguiendo buenas practicas
+
+
 /**
  * Object Methods
  */
