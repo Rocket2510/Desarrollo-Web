@@ -9,6 +9,15 @@ const producto = {
 }
 
 console.log(producto);
-console.log(producto.precio);
+/* acceder a propiedades del objeto */
+// console.log(producto..nombreProducto);
+// console.log(producto['precio']);
 
-console.log(producto['precio']);
+// AGREGAR NUEVAS PROPIEDADES
+producto.imagen = 'imagen.jpg'
+//console.log(producto);
+
+//ELIMINAR PROPIEDADES
+delete producto.disponible;
+console.log(producto);
+
