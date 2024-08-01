@@ -8,7 +8,7 @@ const producto = {
     disponible: true,
 }
 
-console.log(producto);
+//console.log(producto);
 /* acceder a propiedades del objeto */
 // console.log(producto..nombreProducto);
 // console.log(producto['precio']);
@@ -19,5 +19,19 @@ producto.imagen = 'imagen.jpg'
 
 //ELIMINAR PROPIEDADES
 delete producto.disponible;
-console.log(producto);
+//console.log(producto);
 
+/**
+ * Destructuring de Objetos
+ */
+
+//Forma Anterior
+//const precioProducto = producto.precio;
+//const nombreProducto = producto.nombreProducto;
+//console.log(nombreProducto);
+
+//Destructuring
+const  {precio, nombreProducto} = producto;
+
+// console.log(nombreProducto);
+// console.log(precio);
