@@ -6,7 +6,7 @@
 
 
 const heading = document.querySelector('.header__texto h2');
-heading.textContent = 'Nuevo texto';
+//heading.textContent = 'Nuevo texto';
 
 
 /**
@@ -27,3 +27,25 @@ const enlaces = document.querySelectorAll('.navegacion a');
  */
 
 const heading2 = document.getElementById('heading');
+
+/*---------------------------------------------------*/
+
+/**
+ * CREAR HTML CON CREATE ELEMENT
+ */
+
+//1. Generar un nuevo enlace
+const nuevoEnlace = document.createElement('A')
+
+//2. Agregar el 'href'
+nuevoEnlace.href = 'nuevo-enlace.html';
+
+//3. Agregar el texto
+nuevoEnlace.textContent = 'nuevo enlace'
+
+//4. Agregar la clase
+nuevoEnlace.classList.add('navegacion__enlace');
+
+//5. Agregar al Documento HTML
+const navegacion = document.querySelector('.navegacion');
+navegacion.appendChild(nuevoEnlace);
