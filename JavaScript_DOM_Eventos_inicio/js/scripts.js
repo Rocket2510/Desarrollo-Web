@@ -81,13 +81,13 @@ window.onscroll = function () {
  * SELECCIONAR ELEMENTOS Y ASOCIARLES UN EVENTO
  */
 
-const btnEnviar = document.querySelector('.boton--primario');
+// const btnEnviar = document.querySelector('.boton--primario');
 
-btnEnviar.addEventListener('click', function (evento) {
-    console.log(evento.target);
-    evento.preventDefault(); //validar formularior 
-    console.log('EVIANDO FORMULARIO...');
-})
+// btnEnviar.addEventListener('click', function (evento) {
+//     console.log(evento.target);
+//     evento.preventDefault(); //validar formularior 
+//     console.log('EVIANDO FORMULARIO...');
+// })
 
 /**
  * EVENTOS DE LOS INPUTS  Y TEXT AREA
@@ -102,12 +102,26 @@ const datos = {
 const nombre = document.querySelector('#nombre')
 const email = document.querySelector('#email')
 const mensaje = document.querySelector('#mensaje')
+const formulario = document.querySelector('.formulario');
+
 
 nombre.addEventListener('input', leerTexto)
-
 email.addEventListener('input', leerTexto)
-
 mensaje.addEventListener('input', leerTexto)
+
+
+/**
+ * EVENTOS EN FORMULARIOS
+ * 
+ * - evento submit
+ */
+
+formulario.addEventListener('submit', function (evento) {
+    evento.preventDefault();
+    //validar formulario
+
+    //enviar el formulario
+});
 
 function leerTexto(e) {
     console.log(e.target.value);
@@ -116,3 +130,6 @@ function leerTexto(e) {
 
     console.log(datos);
 }
+
+
+
