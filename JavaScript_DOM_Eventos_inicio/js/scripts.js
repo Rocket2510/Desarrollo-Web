@@ -55,24 +55,37 @@ navegacion.appendChild(nuevoEnlace);
  * 
  */
 
-console.log(1);
+//console.log(1);
 
 window.addEventListener('load', function () {
     //'load' espera a que el JS y los archivos que dependen del HTML esten listos
-    console.log(2)
+    //console.log(2)
 });
 
 window.onload = function () {
-    console.log(3)
+    //console.log(3)
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     //'DOMContentLoaded' espera a que solo cargue el HTML, pero no espera CSS o imagenes
-    console.log(4);
+    //console.log(4);
 })
 
-console.log(5);
+//console.log(5);
 
-window.onscroll = function(){
-    console.log('scrolling...');
+window.onscroll = function () {
+    //console.log('scrolling...');
 }
+
+/**
+ * SELECCIONAR ELEMENTOS Y ASOCIARLES UN EVENTO
+ */
+
+const btnEnviar = document.querySelector('.boton--primario');
+
+btnEnviar.addEventListener('click', function (evento) {
+    console.log(evento.target);
+    evento.preventDefault(); //validar formularior 
+    console.log('EVIANDO FORMULARIO...');
+})
+
