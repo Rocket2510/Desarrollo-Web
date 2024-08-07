@@ -121,12 +121,12 @@ formulario.addEventListener('submit', function (evento) {
     //validar formulario
     const { nombre, email, mensaje } = datos;
     if (nombre === '' || email === '' || mensaje === '') {
-        mostrarError('Todos los campos son obligatorios');
+        mostrarAlerta('Todos los campos son obligatorios', true);
 
         return; //corta la ejecucion del código
     }
     //enviar el formulario
-    mostrarMensaje('Se envio correctamente la informacion')
+    mostrarAlerta('Se envio correctamente la informacion')
 
 });
 
@@ -138,30 +138,50 @@ function leerTexto(e) {
     //console.log(datos);
 }
 
-//muestra un error en pantalla
-function mostrarError(mensaje) {
-    const error = document.createElement('P')
-    error.textContent = mensaje;
-    error.classList.add('error')
-    formulario.appendChild(error);
+/**
+ * Refactoring
+ */
 
-    //Desaparecer despues de 5 seg
-    setTimeout(() => {
-        error.remove();
-    }, 5000);
-}
-
-//muestra que se envio el formulario correctamente
-function mostrarMensaje(mensaje) {
+function mostrarAlerta(mensaje, error = null) {
     const alerta = document.createElement('P');
     alerta.textContent = mensaje;
-    alerta.classList.add('correcto')
+
+    if (error) {
+        alerta.classList.add('error');
+    } else {
+        alerta.classList.add('correcto');
+    }
     formulario.appendChild(alerta);
 
-    //Desaparecer despues de 5 seg
     setTimeout(() => {
         alerta.remove();
     }, 5000);
-
 }
+
+//muestra un error en pantalla
+// function mostrarError(mensaje) {
+//     const error = document.createElement('P')
+//     error.textContent = mensaje;
+//     error.classList.add('error')
+//     formulario.appendChild(error);
+
+//     //Desaparecer despues de 5 seg
+//     setTimeout(() => {
+//         error.remove();
+//     }, 5000);
+// }
+
+//muestra que se envio el formulario correctamente
+// function mostrarMensaje(mensaje) {
+//     const alerta = document.createElement('P');
+//     alerta.textContent = mensaje;
+//     alerta.classList.add('correcto')
+//     formulario.appendChild(alerta);
+
+//     //Desaparecer despues de 5 seg
+//     setTimeout(() => {
+//         alerta.remove();
+//     }, 5000);
+
+// }
 
