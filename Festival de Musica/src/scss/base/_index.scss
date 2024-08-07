@@ -1,0 +1,8 @@
+//'@use' se va a utilizar cuando quieras acceder mediante una valriable 
+//@use 'base/variables' as v;
+//'@forward' se va a utilizar cuando quieras cargar todo el contenido de una hoja de estilos
+//@forward 'base/normalize';
+
+@forward 'normalize';
+@forward 'variables';
+@forward 'globales';
