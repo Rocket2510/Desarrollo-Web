@@ -20,15 +20,46 @@
             @include m.grid(4, 1fr, 2rem);
         }
 
-        img{
+        img {
             height: 20rem;
             object-fit: cover;
         }
     }
 }
 
-.modal{
+.modal {
     position: fixed;
     inset: 0;
     background-color: rgba(v.$negro, $alpha: 0.5);
+    display: grid;
+    place-items: center;
+    animation: fadeIn ease-in 0.5s;
+
+    &.fade-out {
+        animation: fadeOut ease-in 0.5s;
+    }
+
+    img {
+        max-width: 100rem;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
