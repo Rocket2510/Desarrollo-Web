@@ -33,7 +33,7 @@
 @mixin grid ($columnas: 1, $fraccion : 1fr, $gap: 5rem) {
     display: grid;
     grid-template-columns: repeat($columnas, $fraccion);
-    column-gap: $gap;
+    gap: $gap;
 }
 
 @mixin reset-list{
