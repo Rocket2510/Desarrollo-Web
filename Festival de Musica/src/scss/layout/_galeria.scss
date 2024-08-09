@@ -26,3 +26,9 @@
         }
     }
 }
+
+.modal{
+    position: fixed;
+    inset: 0;
+    background-color: rgba(v.$negro, $alpha: 0.5);
+}
