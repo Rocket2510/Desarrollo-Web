@@ -3,7 +3,6 @@
 
 .sobre-festival {
     @include m.contenedor;
-
     @include m.tablet {
         @include m.grid(2, 1fr, 5rem);
     }
