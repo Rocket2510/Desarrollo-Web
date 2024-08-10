@@ -24,6 +24,9 @@ function crearGaleria() {
 
     for (let i = 1; i <= CANTIDAD_IMAGENES; i++) {
         const imagen = document.createElement('IMG');
+        imagen.loading = 'lazy';
+        imagen.width = "300";
+        imagen.heigth = "200";
         imagen.src = `src/img/gallery/full/${i}.jpg`;
         imagen.alt = 'Imagen Galeria';
 
@@ -98,16 +101,16 @@ function resaltarEnlace() {
     })
 }
 
-function scrollNav(){
+function scrollNav() {
     const navLinks = document.querySelectorAll('.navegacion-principal a');
-    
-    navLinks.forEach(link =>{
+
+    navLinks.forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
             const sectionScroll = e.target.getAttribute('href');
             const seccion = document.querySelector(sectionScroll);
 
-            seccion.scrollIntoView({behavior: 'smooth'});
+            seccion.scrollIntoView({ behavior: 'smooth' });
         })
     })
 }
