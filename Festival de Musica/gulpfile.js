@@ -4,16 +4,21 @@ import gulpSass from 'gulp-sass'
 
 const sass = gulpSass(dartSass);
 
-export function js(done){
+import terser from 'gulp-terser';
+
+export function js(done) {
     src('src/js/app.js')
-        .pipe( dest('build/js') )
+        .pipe(terser())
+        .pipe(dest('build/js'))
     done()
 }
 
 export function css(done) {
-    src('src/scss/app.scss', {sourcemaps: true})
-        .pipe(sass().on('error', sass.logError))
-        .pipe(dest('build/css', {sourcemaps: true}))
+    src('src/scss/app.scss', { sourcemaps: true })
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }).on('error', sass.logError))
+        .pipe(dest('build/css', { sourcemaps: true }))
     done()
 }
 
