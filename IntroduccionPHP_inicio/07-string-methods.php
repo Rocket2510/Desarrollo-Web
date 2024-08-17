@@ -31,5 +31,5 @@ echo strpos($nombreCliente, 'Juan');
 $tipoCliente = "Premium";
 echo "<br>";
 echo "El cliente ".$tipoCliente." es ".$nombreCliente;
-
+//echo "El usuario {$nombreCliente} {$tipoCliente}";
 include 'includes/footer.php';
