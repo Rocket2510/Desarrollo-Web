@@ -9,5 +9,8 @@ function sumar(int $num1 = 0, int $num2 = 0){
 
 sumar(1, 12);
 
+//parametros nombrados
+//sumar(num1: 30, num2: 40);
+
 
 include 'includes/footer.php';
