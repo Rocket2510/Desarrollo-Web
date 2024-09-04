@@ -10,5 +10,4 @@ function sumar(int $num1 = 0, int $num2 = 0){
 sumar(1, 12);
 
 
-
 include 'includes/footer.php';
