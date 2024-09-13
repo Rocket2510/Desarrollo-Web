@@ -8,4 +8,6 @@
 
 .boton-verde {
     @include boton($verde, inline-block);
+    border: none;
+    cursor: pointer;
 }
