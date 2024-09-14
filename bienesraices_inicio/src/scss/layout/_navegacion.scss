@@ -1,10 +1,37 @@
+.derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        align-items: flex-end;
+
+    }
+
+    .dark-mode-boton {
+        width: 3rem;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+        filter: invert(100%);
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+}
+
 .barra {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 3rem;
-
+    
     @include tablet {
+        align-items: flex-end;
         flex-direction: row;
         justify-content: space-between;
     }
@@ -43,18 +70,20 @@
 }
 
 /** Menu de Hamburguesa **/
-.mobile-menu{
-    @include tablet{
+.mobile-menu {
+    @include tablet {
         display: none;
     }
 
-   img{
-    width: 5rem;
+    img {
+        width: 5rem;
 
-   }
+    }
 }
 
-.mostrar{
+.mostrar {
     visibility: visible;
     opacity: 1;
 }
+
+/** Boton Dark Mode**/
