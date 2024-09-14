@@ -18,7 +18,8 @@
     }
 
     input:not([type="submit"]),
-    textarea, select {
+    textarea,
+    select {
         padding: 1rem;
         display: block;
         width: 100%;
@@ -28,21 +29,20 @@
         margin-bottom: 2rem;
     }
 
-    textarea{
+    textarea {
         height: 20rem;
         resize: none;
     }
 
-    .forma-contacto{
+    .forma-contacto {
         max-width: 30rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
-    input[type="radio"]{
+    input[type="radio"] {
         margin: 0;
         width: auto;
     }
 }
-
