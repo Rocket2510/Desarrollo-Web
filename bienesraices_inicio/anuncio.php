@@ -1,52 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="build/css/app.css">
-</head>
-
-<body>
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                    <img src="build/img/logo.svg" alt="logotipo de Bienes Raices">
-                </a>
-
-
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="icono menu responsive">
-                </div>
-
-                <div class="derecha">
-                    <img class="dark-mode-boton" src="build/img/dark-mode.svg" alt="icono darkmode">
-
-                    <nav class="navegacion">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-
-            </div> <!-- .barra -->
-        </div>
-    </header>
-
+<?php
+    include './includes/templates/header.php';  
+?>
     <main class="contenedor seccion contenido-centrado">
-        <h1>Guía para la decoración de tu hogar</h1>
+        <h1>Casa en Venta Frente al Bosque</h1>
 
         <picture>
-            <source srcset="build/img/destacada2.webp" type="image/webp">
-            <source srcset="build/img/destacada2.jpg" type="image/jpeg">
-            <img loading="lazy" src="build/img/destacada2.jpg" alt="imagen propiedad">
+            <source srcset="build/img/destacada.webp" type="image/webp">
+            <source srcset="build/img/destacada.jpg" type="image/jpeg">
+            <img loading="lazy" src="build/img/destacada.jpg" alt="imagen propiedad">
         </picture>
 
         <div class="resumen-propiedad">
-            <p class="informacion-meta">Escrito el: <span>20/10/2024</span> por: <span>Admin</span></p>
+            <p class="precio">$3,000,000</p>
+
+            <ul class="iconos-caracteristicas">
+                <li>
+                    <img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
+                    <p>3</p>
+                </li>
+
+                <li>
+                    <img class="icono" loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
+                    <p>3</p>
+                </li>
+
+                <li>
+                    <img class="icono" loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones">
+                    <p>4</p>
+                </li>
+            </ul>
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quisquam omnis dolorem quia eligendi
                 hic alias, fugit ipsum repudiandae corrupti odit amet sunt. Ad officiis quisquam sit dolore alias
