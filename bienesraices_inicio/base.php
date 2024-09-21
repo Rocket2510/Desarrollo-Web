@@ -1,5 +1,5 @@
 <?php
-    include './includes/templates/header.php';
+    include './includes/template/header.php';
     
 ?>
     <main class="contenedor seccion">
@@ -18,7 +18,4 @@
 
         <p class="copyright">Todos los Derechos Reservados 2024 &copy;</p>
     </footer>
-    <script src="build/js/bundle.min.js"></script>
-</body>
-
-</html>
+   
