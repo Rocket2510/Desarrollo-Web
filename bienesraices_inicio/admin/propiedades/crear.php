@@ -12,10 +12,29 @@
 
         $titulo = $_POST['titulo'];
         $precio = $_POST['precio'];
+        $descripcion = $_POST['descripcion'];
+        $habitaciones = $_POST['habitaciones'];
+        $wc = $_POST['wc'];
+        $estacionamiento = $_POST['estacionamiento'];
+        $vendedorId = $_POST['vendedor'];
+
+        //Insertar en la base de datos
+        $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedorId )
+        VALUES('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedorId')";
+
+        //echo $query;
+
+        $resultado = mysqli_query($db, $query);
+
+        if($resultado){
+            echo "Insertado Correctamente";
+        }
     }
 
     require '../../includes/funciones.php';
     incluirTemplate('header');
+    //GET = Expone los datos en la URL
+    // POST = Envia los datos al servidor
     
 ?>
 
@@ -37,7 +56,7 @@
                 <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png">
 
                 <label for="descripcion">Descripción</label>
-                <textarea id="descripcion"></textarea>
+                <textarea id="descripcion" name="descripcion"></textarea>
             </fieldset>
 
             <fieldset>
@@ -55,7 +74,7 @@
 
             <fieldset>
                 <legend>Vendedor</legend>
-                <select>
+                <select name="vendedor">
                     <option> -- Selecciones una opción -- </option>
                     <option value="1">Juan</option>
                     <option value="2">Karen</option>
