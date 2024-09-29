@@ -18,9 +18,14 @@
 
     //Ejecuta el código después de que el usuario envia el formulario
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // echo "<pre>";
-        //     var_dump($_POST);
-        // echo "</pre>";
+        //  echo "<pre>";
+        //      var_dump($_POST);
+        //  echo "</pre>";
+
+        //  echo "<pre>";
+        //      var_dump($_FILES);
+        //  echo "</pre>";
+
 
         $titulo = mysqli_real_escape_string( $db,$_POST['titulo']);
         $precio = mysqli_real_escape_string( $db,$_POST['precio']);
@@ -30,6 +35,13 @@
         $estacionamiento = mysqli_real_escape_string($db,$_POST['estacionamiento']);
         $vendedorId = mysqli_real_escape_string( $db,$_POST['vendedor']);
         $creado = date('Y/m/d');
+
+        //Asignar FILES a una variable
+        $imagen = $_FILES['imagen'];
+
+        //var_dump($imagen['name']);
+
+        
 
         if (!$titulo) {
             $errores [] = "Debes agregar un Titulo";
@@ -52,6 +64,18 @@
         if (!$vendedorId) {
             $errores [] = "Elige un vendedor";
         }
+
+        if(!$imagen['name'] || $imagen['error']){
+            $errores[] = "La Imagen es Obligatoria";
+        }
+
+        //validar por tamaño de imagen 100Kb max
+        $medida = 1000 * 100;
+
+        if($imagen['size'] > $medida){
+            $errores[] = "La Imagen es muy pesada";
+        }
+
 
         // echo "<pre>";
         // var_dump($errores);
@@ -95,7 +119,7 @@
             </div>
         <?php endforeach?>
 
-        <form class="formulario" method="POST" action="/admin/propiedades/crear.php">
+        <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>Información General</legend>
                 <label for="titulo">Titulo:</label>
@@ -105,7 +129,7 @@
                 <input type="number" id="precio" name="precio" placeholder="Precio Propiedad" value="<?php echo $precio?>">
 
                 <label for="imagen">Imagen</label>
-                <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png">
+                <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png" name="imagen">
 
                 <label for="descripcion">Descripción</label>
                 <textarea id="descripcion" name="descripcion"><?php echo $descripcion?></textarea>
