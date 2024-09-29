@@ -2,6 +2,9 @@
     //Data Base
     require '../../includes/config/database.php';
     $db = conectarDB();
+    //Consultar para obtener a los vendedores
+    $consulta = "SELECT * FROM vendedores";
+    $resultado = mysqli_query($db, $consulta);
 
     // Arreglo con mensajes de errrores
     $errores = [];
@@ -27,6 +30,7 @@
         $wc = $_POST['wc'];
         $estacionamiento = $_POST['estacionamiento'];
         $vendedorId = $_POST['vendedor'];
+        $creado = date('Y/m/d');
 
         if (!$titulo) {
             $errores [] = "Debes agregar un Titulo";
@@ -57,16 +61,17 @@
         //Revisar que el arreglo de errores este vacio
         if(empty($errores)){
             //Insertar en la base de datos
-            $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedorId )
-            VALUES('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedorId')";
+            $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado ,vendedorId )
+            VALUES('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado' ,'$vendedorId')";
 
             //echo $query;
 
             $resultado = mysqli_query($db, $query);
 
-            // if($resultado){
-            //     echo "Insertado Correctamente";
-            // }
+            if($resultado){
+                //Redireccionar al Usuario
+                 header('Location:/admin');
+             }
         }
         
     }
@@ -123,9 +128,12 @@
             <fieldset>
                 <legend>Vendedor</legend>
                 <select name="vendedor">
-                    <option value="0"> -- Selecciones una opción -- </option>
-                    <option value="1">Juan</option>
-                    <option value="2">Karen</option>
+                    <option disabled selected> -- Seleccione una opción -- </option>
+                    <?php while($vendedor = mysqli_fetch_assoc($resultado)):?>
+                        <option <?php echo $vendedorId === $vendedor['id'] ? 'selected': '';?> value="<?php echo $vendedor['id']; ?>"> <?php echo $vendedor['nombre'] . " ". $vendedor['apellido']; ?> 
+                        </option>
+                
+                    <?php endwhile?>
                 </select>
             </fieldset>
 
