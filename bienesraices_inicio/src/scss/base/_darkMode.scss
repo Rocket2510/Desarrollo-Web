@@ -2,7 +2,8 @@
     background-color: darken($grisOscuro, 10);
 
     p,
-    blockquote {
+    blockquote,
+    td {
         color: $blanco;
     }
 
@@ -38,7 +39,7 @@
 
         input:not([type="submit"]),
         textarea,
-        select{
+        select {
             background-color: $grisOscuro;
             border: 1px solid $grisOscuro ;
             color: $blanco;
