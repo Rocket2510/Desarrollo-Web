@@ -47,8 +47,9 @@
                     <td><img src="/imagenes/<?php echo $propiedad['imagen']; ?>" alt="" class="imagen-tabla"></td>
                     <td><?php echo "$".$propiedad['precio']; ?></td>
                     <td>
-                        <a href="#" class="boton-rojo-block">Eliminar</a>
-                        <a href="#" class="boton-amarillo-block" >Editar</a>
+                        <a href="admin/propiedades/borrar.php" class="boton-rojo-block">Eliminar</a>
+                        <a href="admin/propiedades/actualizar.php?id=<?php echo $propiedad['id'];?>" 
+                        class="boton-amarillo-block" >Editar</a>
                     </td>
                 </tr>
 
