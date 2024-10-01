@@ -79,9 +79,9 @@
             $errores [] = "Elige un vendedor";
         }
 
-        if(!$imagen['name'] || $imagen['error']){
-            $errores[] = "La Imagen es Obligatoria";
-        }
+        // if(!$imagen['name'] || $imagen['error']){
+        //     $errores[] = "La Imagen es Obligatoria";
+        // }
 
         //validar por tamaño de imagen 100Kb max
         $medida = 1000 * 100;
@@ -99,30 +99,31 @@
             /* SUBIDA DE ARCHIVOS */
 
             //Crear un carpeta
-            $carpetaImagenes = '../../imagenes/';
+            // $carpetaImagenes = '../../imagenes/';
             
-            if(!is_dir($carpetaImagenes)){
-                mkdir($carpetaImagenes);
+            // if(!is_dir($carpetaImagenes)){
+            //     mkdir($carpetaImagenes);
 
-            }
+            // }
 
-            //Generar nombre unico de img
-            $nombreImagen =  md5(uniqid(rand(), true)).".jpg";
+            // //Generar nombre unico de img
+            // $nombreImagen =  md5(uniqid(rand(), true)).".jpg";
 
-            //subir la imagen
-            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
+            // //subir la imagen
+            // move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
             
             //Actualizar en la base de datos
-            $query = "UPDATE propiedades SET titulo = '$titulo', precio = '$precio', imagen = '$imagen', descripcion = '$descripcion', habitaciones = '$habitaciones', wc = '$wc', estacionamiento = '$estacionamiento', vendedorId = $vendedorId
+            $query = "UPDATE propiedades SET titulo = '$titulo', precio = '$precio', descripcion = '$descripcion', habitaciones = '$habitaciones', wc = '$wc', estacionamiento = '$estacionamiento', vendedorId = $vendedorId
                 WHERE id = $id";
 
             //echo $query;
+            
 
             $resultado = mysqli_query($db, $query);
 
             if($resultado){
                 //Redireccionar al Usuario
-                 header('Location: /admin?resultado=1');
+                 header('Location: /admin?resultado=2');
              }
         }
         
@@ -148,7 +149,7 @@
             </div>
         <?php endforeach?>
 
-        <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
+        <form class="formulario" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <legend>Información General</legend>
                 <label for="titulo">Titulo:</label>
