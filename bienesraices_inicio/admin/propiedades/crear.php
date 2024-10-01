@@ -70,7 +70,7 @@
         }
 
         //validar por tamaño de imagen 100Kb max
-        $medida = 1000 * 100;
+        $medida = 1000 * 1000;
 
         if($imagen['size'] > $medida){
             $errores[] = "La Imagen es muy pesada";
