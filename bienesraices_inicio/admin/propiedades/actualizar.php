@@ -9,19 +9,26 @@
     //Data Base
     require '../../includes/config/database.php';
     $db = conectarDB();
+
+    //Obtener datos de la propiedad
+    $consultaPropiedad = "SELECT * FROM propiedades WHERE id = $id";
+    $resultadoPropiedad = mysqli_query($db, $consultaPropiedad);
+    $propiedad = mysqli_fetch_assoc($resultadoPropiedad);
+
     //Consultar para obtener a los vendedores
     $consulta = "SELECT * FROM vendedores";
     $resultado = mysqli_query($db, $consulta);
 
     // Arreglo con mensajes de errores
     $errores = [];
-    $titulo = '';
-    $precio = '';
-    $descripcion = '';
-    $habitaciones = '';
-    $wc = '';
-    $estacionamiento = '';
-    $vendedorId = '';
+    $titulo = $propiedad['titulo'];
+    $precio =  $propiedad['precio'];
+    $imagenPropiedad = $propiedad['imagen'];
+    $descripcion = $propiedad['descripcion'];
+    $habitaciones = $propiedad['habitaciones'];
+    $wc = $propiedad['wc'];
+    $estacionamiento = $propiedad['estacionamiento'];
+    $vendedorId = $propiedad['vendedorId'];
 
     //Ejecuta el código después de que el usuario envia el formulario
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -105,9 +112,9 @@
             //subir la imagen
             move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
             
-            //Insertar en la base de datos
-            $query = "INSERT INTO propiedades (titulo, precio, imagen ,descripcion, habitaciones, wc, estacionamiento, creado ,vendedorId )
-            VALUES('$titulo', '$precio', '$nombreImagen' ,'$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado' ,'$vendedorId')";
+            //Actualizar en la base de datos
+            $query = "UPDATE propiedades SET titulo = '$titulo', precio = '$precio', imagen = '$imagen', descripcion = '$descripcion', habitaciones = '$habitaciones', wc = '$wc', estacionamiento = '$estacionamiento', vendedorId = $vendedorId
+                WHERE id = $id";
 
             //echo $query;
 
@@ -152,6 +159,8 @@
 
                 <label for="imagen">Imagen</label>
                 <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png" name="imagen">
+
+                <img src="/imagenes/<?php echo $imagenPropiedad; ?>" alt="" class="imagen-small">
 
                 <label for="descripcion">Descripción</label>
                 <textarea id="descripcion" name="descripcion"><?php echo $descripcion?></textarea>
