@@ -1,4 +1,11 @@
 <?php
+    $id = $_GET['id'];
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+
+    if (!$id) {
+        header('Location: /');
+    }
+
     require 'includes/funciones.php';
     incluirTemplate('header');
 
@@ -7,20 +14,23 @@
      $db = conectarDB();
  
      //consultar
-     $query = "SELECT * FROM propiedades";
+     $query = "SELECT * FROM propiedades WHERE id = $id";
  
      //Obtener los resultados
      $resultado = mysqli_query($db, $query);
-    
+     if (!$resultado->num_rows) {
+        header('Location: /');
+     }
+     $propiedad = mysqli_fetch_assoc($resultado);
 ?>
 
     <main class="contenedor seccion contenido-centrado">
-        <?php while($propiedad = mysqli_fetch_assoc($resultado)):?>
+        
         <h1><?php echo $propiedad['titulo'] ?></h1>
 
-        <picture>
-            <img loading="lazy" src="build/img/<?php echo $propiedad['imagen'] ?>" alt="imagen propiedad">
-        </picture>
+        
+        <img loading="lazy" src="/imagenes/<?php echo $propiedad['imagen'] ?>" alt="imagen propiedad">
+        
 
         <div class="resumen-propiedad">
             <p class="precio">$<?php echo $propiedad['precio']; ?></p>
@@ -45,11 +55,11 @@
             <p><?php echo $propiedad['descripcion']; ?></p>
 
             
-        </div>
-        <?php endwhile;?>   
+        </div>   
     </main>
 
     <?php 
+        mysqli_close($db);
         incluirTemplate('footer');
     ?>
    
