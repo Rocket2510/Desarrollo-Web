@@ -2,6 +2,7 @@
     //Data Base
     require '../../includes/config/database.php';
     $db = conectarDB();
+    
     //Consultar para obtener a los vendedores
     $consulta = "SELECT * FROM vendedores";
     $resultado = mysqli_query($db, $consulta);

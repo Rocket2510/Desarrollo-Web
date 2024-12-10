@@ -24,10 +24,10 @@
             $resultado = mysqli_query($db, $query);
             $propiedad = mysqli_fetch_assoc($resultado);
 
-            unlink('../imagenes/' . $propiedad['imagen']);
+            unlink('../imagenes/' . $propiedad['imagen']); //va a permitir eliminar la imagen
 
             //Elimina la propiedad
-            $queryDelete = "DELETE FROM propiedades WHERE id = ${id}";
+            $queryDelete = "DELETE FROM propiedades WHERE id = $id";
             $resultado = mysqli_query($db, $queryDelete);
 
             if($resultado){

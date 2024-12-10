@@ -10,8 +10,8 @@ function conectarDB():mysqli{
     if(!$db){
         echo "fallo la conexion";
         exit;
-    }   
-
+    } 
+    
     return $db;
 }
 
