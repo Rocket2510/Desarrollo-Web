@@ -9,9 +9,9 @@
     $errores = [];
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        echo "<pre>";
-        var_dump($_POST);
-        echo "</pre>";
+        // echo "<pre>";
+        // var_dump($_POST);
+        // echo "</pre>";
 
         $email = mysqli_real_escape_string($db,filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) ;
         $password =mysqli_real_escape_string($db,$_POST['password']);
@@ -25,7 +25,18 @@
         }
 
         if(empty($errores)){
-            $errores [] = ""
+            //Revisar si el usuario existe
+            $query = "SELECT * FROM usuarios WHERE email = '${email}'"; 
+            $resultado = mysqli_query($db, $query);
+
+            
+            var_dump($resultado);
+            if($resultado->num_rows ){
+                //Revisar si el password es correcto
+                
+            }else{
+                $errores [] = "El usuario no existe";
+            }
         }
     }
 
@@ -51,10 +62,10 @@
                     <legend>Email y Password</legend>
 
                     <label for="email">E-mail</label>
-                    <input type="email" name="email" placeholder="Tu E-mail" id="email" required>
+                    <input type="email" name="email" placeholder="Tu E-mail" id="email">
 
                     <label for="password">Password</label>
-                    <input type="password" name="password" placeholder="Tu Password" id="pasword" required>
+                    <input type="password" name="password" placeholder="Tu Password" id="pasword">
                 </fieldset>
 
                 <input type="submit" value="Iniciar Sesion" class="boton boton-verde">
