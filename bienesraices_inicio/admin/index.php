@@ -1,4 +1,11 @@
 <?php
+    session_start();
+
+    $auth = $_SESSION['login']
+    if (!$auth) {
+        header("Location: /");
+    }
+
     //Importar la Conexion a la DB
     require '../includes/config/database.php';
     $db = conectarDB();

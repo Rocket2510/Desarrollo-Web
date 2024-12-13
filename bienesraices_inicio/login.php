@@ -36,11 +36,21 @@
                 
                 //Verificar si el password es correcto o no
                 $auth = password_verify($password, $usuario['password']);
-                var_dump($auth);
 
                 if(!$auth){
                     $errores [] = "El password es incorrecto";
                 }else{
+                    //El usuario esta autenticado
+                    session_start();
+
+                    //Llenar el arrerglo de la sesión
+                    $_SESSION['usuario'] = $usuario["email"];
+                    $_SESSION['login'] = true;
+
+                    
+                    echo "<pre>";
+                    var_dump($_SESSION);
+                    echo "</pre>";
                     
                 }
 
