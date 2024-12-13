@@ -1,4 +1,14 @@
 <?php
+
+     require '../../includes/funciones.php';
+
+     //Autenticar Sesion Usuario
+     $auth = usuarioAutenticado();
+     
+     if(!$auth){
+        header('Location: /');
+     }
+
     //Validar la URL por ID válido
     $id = $_GET['id'];
     $id = filter_var($id, FILTER_VALIDATE_INT);
@@ -141,7 +151,7 @@
         
     }
 
-    require '../../includes/funciones.php';
+   
     incluirTemplate('header');
     //GET = Expone los datos en la URL
     // POST = Envia los datos al servidor

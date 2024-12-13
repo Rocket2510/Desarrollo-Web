@@ -1,10 +1,13 @@
 <?php
-    session_start();
+    
+    require '../includes/funciones.php';
 
-    $auth = $_SESSION['login']
-    if (!$auth) {
-        header("Location: /");
-    }
+     //Autenticar Sesion Usuario
+     $auth = usuarioAutenticado();
+     
+     if(!$auth){
+        header('Location: /');
+     }
 
     //Importar la Conexion a la DB
     require '../includes/config/database.php';
@@ -44,7 +47,6 @@
     }
 
     //incluye un template
-    require '../includes/funciones.php';
     incluirTemplate('header');
     
 ?>

@@ -1,4 +1,14 @@
 <?php
+    require '../../includes/funciones.php';
+
+    //Autenticar Sesion Usuario
+    $auth = usuarioAutenticado();
+    
+    if(!$auth){
+       header('Location: /');
+    }
+
+
     //Data Base
     require '../../includes/config/database.php';
     $db = conectarDB();
@@ -115,7 +125,6 @@
         
     }
 
-    require '../../includes/funciones.php';
     incluirTemplate('header');
     //GET = Expone los datos en la URL
     // POST = Envia los datos al servidor
