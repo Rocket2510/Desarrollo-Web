@@ -30,10 +30,20 @@
             $resultado = mysqli_query($db, $query);
 
             
-            var_dump($resultado);
             if($resultado->num_rows ){
                 //Revisar si el password es correcto
+                $usuario = mysqli_fetch_assoc($resultado);
                 
+                //Verificar si el password es correcto o no
+                $auth = password_verify($password, $usuario['password']);
+                var_dump($auth);
+
+                if(!$auth){
+                    $errores [] = "El password es incorrecto";
+                }else{
+                    
+                }
+
             }else{
                 $errores [] = "El usuario no existe";
             }
