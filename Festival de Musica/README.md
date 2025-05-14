@@ -28,10 +28,10 @@ El sitio es totalmente responsivo y presenta animaciones para mejorar la experie
 - Uso de Gulp para compilar Sass y optimizar archivos
 - Código limpio y estructurado
 
-## 📷 Capturas de pantalla
+<!-- ## 📷 Capturas de pantalla -->
 
-*(Aquí puedes agregar imágenes del sitio usando Markdown. Por ejemplo:)*
+<!-- *(Aquí puedes agregar imágenes del sitio usando Markdown. Por ejemplo:)* -->
 
-```md
+<!-- ```md
 ![Vista principal del sitio](ruta/a/tu/captura1.png)
-![Sección Galería](ruta/a/tu/captura2.png)
+![Sección Galería](ruta/a/tu/captura2.png) -->
