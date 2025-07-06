@@ -9,7 +9,7 @@
 interface TransporteInterface{
     public function getInfo() : string;
     public function getRuedas() : int;
-    public function getColor() : string;
+    //public function getColor() : string;
 
 }
 
