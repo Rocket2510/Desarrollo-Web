@@ -1,4 +1,12 @@
 <?php include 'includes/header.php';
+require "vendor/autoload.php";
+
+
+use App\Clientes;
+use App\Detalles;
+
+use Firebase\JWT\JWT; //libreria extraida a través de composer
+
 //Incluir las otras clases
 //require 'clases/Clientes.php';
 //require 'clases/Detalles.php';
@@ -7,14 +15,15 @@
 /**
  * un metodo en PHP para automatizar la importaciones de clases 
  * 
+ * SE UTILIZO COMPOSER PARA AUTOMATIZAR EL AUTOLOAD Y LOS NAMESPACES
  */
-function mi_autoload($clase){
-    $partes = explode('\\', $clase);
+// function mi_autoload($clase){
+//     $partes = explode('\\', $clase);
     
-    require __DIR__ . '/clases/' . $partes[1] . ".php";
-}
+//     require __DIR__ . '/clases/' . $partes[1] . ".php";
+// }
 
-spl_autoload_register('mi_autoload');
+// spl_autoload_register('mi_autoload');
 
 // class Clientes{
 //     public function __construct(){
@@ -26,10 +35,9 @@ spl_autoload_register('mi_autoload');
 /**
  * Evitamos que una clase choque con otra clase del mismo nombre
  */
-$detalles = new App\Detalles();
-$clientes = new App\Clientes();
+$detalles = new Detalles();
+$clientes = new Clientes();
 //$clientes2 = new Clientes();
-
 
 
 include 'includes/footer.php';
