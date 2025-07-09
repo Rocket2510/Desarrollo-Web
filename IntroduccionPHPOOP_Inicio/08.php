@@ -9,13 +9,26 @@
  * 
  */
 function mi_autoload($clase){
-    require __DIR__ . '/clases/' . $clase . ".php";
+    $partes = explode('\\', $clase);
+    
+    require __DIR__ . '/clases/' . $partes[1] . ".php";
 }
 
 spl_autoload_register('mi_autoload');
 
-$detalles = new Detalles();
-$clientes = new Clientes();
+// class Clientes{
+//     public function __construct(){
+//         echo "Desde 08.php que contiene los clientes";
+//     }
+// }
+
+//Namespaces
+/**
+ * Evitamos que una clase choque con otra clase del mismo nombre
+ */
+$detalles = new App\Detalles();
+$clientes = new App\Clientes();
+//$clientes2 = new Clientes();
 
 
 
