@@ -6,11 +6,9 @@
         header('Location: /');
     }
 
-    require 'includes/funciones.php';
-    incluirTemplate('header');
-
+    require 'includes/app.php';
+    
      //importar la DB
-     require 'includes/config/database.php';
      $db = conectarDB();
  
      //consultar
@@ -22,6 +20,8 @@
         header('Location: /');
      }
      $propiedad = mysqli_fetch_assoc($resultado);
+
+     incluirTemplate('header');
 ?>
 
     <main class="contenedor seccion contenido-centrado">

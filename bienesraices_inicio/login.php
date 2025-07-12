@@ -1,7 +1,7 @@
 <?php
 
     //conexion a la BD
-    require 'includes/config/database.php';
+    require 'includes/app.php';
     $db = conectarDB();
 
 
@@ -59,7 +59,6 @@
 
 
     //Incluye el Header
-    require 'includes/funciones.php';
     incluirTemplate('header');
     
 ?>
