@@ -2,15 +2,10 @@
     require '../../includes/app.php';
 
     //Autenticar Sesion Usuario
-    $auth = usuarioAutenticado();
-    
-    if(!$auth){
-       header('Location: /');
-    }
+    usuarioAutenticado();
 
 
     //Data Base
-    require '../../includes/config/database.php';
     $db = conectarDB();
     
     //Consultar para obtener a los vendedores

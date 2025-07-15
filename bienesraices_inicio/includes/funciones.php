@@ -5,13 +5,18 @@ function incluirTemplate(string $nombre, bool $inicio = false){
     include TEMPLATES_URL."/${nombre}.php";
 }
 
-function usuarioAutenticado(): bool{
+function usuarioAutenticado(){
     session_start();
 
-    $auth = $_SESSION['login'];
-    if ($auth) {
-        return true;
+    if (!$_SESSION['login']) {
+        header('Location: /');
     }
 
-    return false;
+}
+
+function debug($variable){
+    echo '<pre>';
+    var_dump($variable);
+    echo '</pre>';
+    exit;
 }

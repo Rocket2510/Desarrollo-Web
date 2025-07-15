@@ -17,7 +17,6 @@
     }
 
     //Data Base
-    require '../../includes/config/database.php';
     $db = conectarDB();
 
     //Obtener datos de la propiedad

@@ -10,7 +10,7 @@
      }
 
     //Importar la Conexion a la DB
-    require '../includes/config/database.php';
+    //require '../includes/config/database.php';
     $db = conectarDB();
 
     //Escribir el Query
